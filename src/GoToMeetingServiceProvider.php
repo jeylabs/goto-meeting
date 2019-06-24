@@ -40,7 +40,8 @@ class GoToMeetingServiceProvider extends ServiceProvider
                 $config->get('goto-meeting.direct_user', null),
                 $config->get('goto-meeting.user_password', null),
                 $config->get('goto-meeting.consumer_key', null),
-                $config->get('goto-meeting.consumer_secret', null)
+                $config->get('goto-meeting.consumer_secret', null),
+                $config->get('goto-meeting.webinars_date_range', null)
             );
         });
         $app->alias('GoToMeeting', GoToMeeting::class);
