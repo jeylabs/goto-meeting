@@ -35,10 +35,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Jeylabs\\SessionTimer\\SessionTimerServiceProvider"
+        "Jeylabs\\GoToMeeting\\GoToMeetingServiceProvider"
       ],
       "aliases": {
-        "Excel": "Jeylabs\\SessionTimer\\Facades\\Excel"
+        "GoToMeeting": "Jeylabs\\GoToMeeting\\Facades\\GoToMeeting"
       }
     }
   },
