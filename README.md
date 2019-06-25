@@ -1,44 +1,34 @@
-#Session Timer
-*Session timer for laravel*
+#Goto meeting
+*Goto meeting V2 api for laravel*
 
 ### Third party packages:
-* *js-cookie: Manage Cookie*
-* *sweetalert2: For Alert Logout*
-* *jquery.idle: Ideal functions*
+* *guzzle: Handle XHR requests*
 
 ###Installation
-* Add This line in your ```composer.json```
+* Add This lines in your ```composer.json```
 
-    ``` "jeylabs/session-timer": "dev-master" ```
+    ``` "jeylabs/goto-meeting": "dev-master" ```
+    ```
+    "repositories": [
+           {
+             "type": "vcs",
+             "url": "https://github.com/jeylabs/goto-meeting"
+           }
+         ],
+     ```
 
-* Publish the config and required js files. <br>
+* Publish the config file. <br>
 
-    ```php artisan vendor:publish --provider="Jeylabs\SessionTimer\SessionTimerServiceProvider"```
-
-* Include the js file in your script section. <br>
-
-    ```<script src="{!! asset('assets/vendor/session-timer.js') !!}"></script>``` <br>
-
-    ```@include("sessionTimer::index")```
+    ```php artisan vendor:publish --provider="Jeylabs\GoToMeeting\GoToMeetingServiceProvider"```
 
 ###Config
 ```php
 return [
-    'session_lifetime' => env("SESSION_LIFETIME", 5),
-    'session_expire_time' => env("SESSION_EXPIRE_TIME", 5),
-    'session_skip_time' => env("SESSION_SKIP_TIME", 30),
-    'texts' => [
-        "main_message" => "Session will logout in " . env("SESSION_EXPIRE_TIME", 5) . " minutes. Do you need more time?",
-        'cancel_button' => "Log Out",
-        "submit_button" => "More time, please"
-    ],
-    "icon" => [
-        'available' => true,
-        'assert' => true,
-        'path' => "assets/portal/img/portal/default.jpg"
-    ],
-    'logout_path' => "/auth/logout",
-    'cookie_name' => "session_timer_ideal"
+    'direct_user' => env("GOTO_DIRECT_USER"),
+    'consumer_key' => env("GOTO_CONSUMER_KEY"),
+    'consumer_secret' => env("GOTO_CONSUMER_SECRET"),
+    'user_password' => env("GOTO_DIRECT_USER_PASSWORD"),
+    'webinars_date_range' => env("DATE_RANGE", 1),
 ];
 ```
 
